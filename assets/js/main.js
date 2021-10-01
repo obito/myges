@@ -156,9 +156,9 @@
   });
 
   /**
-   * Clients Slider
+   * Partenaires Slider
    */
-  new Swiper('.clients-slider', {
+  new Swiper('.partenaires-slider', {
     speed: 400,
     loop: true,
     autoplay: {

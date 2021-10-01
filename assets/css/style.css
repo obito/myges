@@ -1276,25 +1276,25 @@ section {
 /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
-.clients .clients-slider .swiper-slide img {
+.partenaires .partenaires-slider .swiper-slide img {
   opacity: 0.5;
   transition: 0.3s;
 }
-.clients .clients-slider .swiper-slide img:hover {
+.partenaires .partenaires-slider .swiper-slide img:hover {
   opacity: 1;
 }
-.clients .clients-slider .swiper-pagination {
+.partenaires .partenaires-slider .swiper-pagination {
   margin-top: 20px;
   position: relative;
 }
-.clients .clients-slider .swiper-pagination .swiper-pagination-bullet {
+.partenaires .partenaires-slider .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background-color: #fff;
   opacity: 1;
   border: 1px solid #4154f1;
 }
-.clients .clients-slider .swiper-pagination .swiper-pagination-bullet-active {
+.partenaires .partenaires-slider .swiper-pagination .swiper-pagination-bullet-active {
   background-color: #4154f1;
 }
 
