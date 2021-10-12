@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,93 +75,95 @@
     <section class="inner-page">
       <div class="container">
 
-           <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
 
-      <div class="container" data-aos="fade-up">
+          <div class="container" data-aos="fade-up">
 
-        <header class="section-header">
-          <h2>Contact</h2>
-          <p>Contactez-Nous</p>
-        </header>
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6">
+            <header class="section-header">
+              <h2>Contact</h2>
+              <p>Envoyez-nous un e-mail</p>
+            </header>
 
             <div class="row gy-4">
-              <div class="col-md-6">
-                <div class="info-box">
-                  <i class="bi bi-geo-alt"></i>
-                  <h3>Adresse</h3>
-                  <p>A85 Av. Pierre Grenier,<br>Boulogne-Billancourt 2100, France</p>
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.28520072863!2d2.251841515321888!3d48.833698410399585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6720d8f00c413%3A0x3188ba64d6f57509!2zUsOpc2VhdSBHRVMsIEdyYW5kZXMgw4ljb2xlcyBTcMOpY2lhbGlzw6llcw!5e0!3m2!1sfr!2sfr!4v1633782948697!5m2!1sfr!2sfr" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
 
+
+              <div class="col-lg-6">
+
+                <div class="row gy-4">
+                  <div class="col-md-13">
+                    <div class="info-box">
+                      <i class="bi bi-geo-alt"></i>
+                      <h3>Adresse</h3>
+                      <p>A85 Av. Pierre Grenier,<br>Boulogne-Billancourt 2100, France</p>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.28520072863!2d2.251841515321888!3d48.833698410399585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6720d8f00c413%3A0x3188ba64d6f57509!2zUsOpc2VhdSBHRVMsIEdyYW5kZXMgw4ljb2xlcyBTcMOpY2lhbGlzw6llcw!5e0!3m2!1sfr!2sfr!4v1633782948697!5m2!1sfr!2sfr" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
+
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="info-box">
+                      <i class="bi bi-telephone"></i>
+                      <h3>Appelez-Nous</h3>
+                      <p>+33 1 41 41 02 35</p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="info-box">
+                      <i class="bi bi-clock"></i>
+                      <h3>Heures d'ouverture</h3>
+                      <p>Lundi - Vendredi<br>09:00 – 18:00</p>
+                    </div>
+                  </div>
                 </div>
+
               </div>
-              <div class="col-md-6">
-                <div class="info-box">
-                  <i class="bi bi-telephone"></i>
-                  <h3>Appelez-Nous</h3>
-                  <p>+33 1 41 41 02 35</p>
-                </div>
+
+              <div class="col-lg-6">
+                <form action="forms/contact.php" method="POST" class="php-email-form">
+                  <div class="row gy-4">
+
+                    <div class="col-md-6">
+                      <input type="text" name="name" class="form-control" placeholder="Votre nom" required>
+                    </div>
+
+                    <div class="col-md-6 ">
+                      <input type="email" class="form-control" name="email" placeholder="Votre E-Mail" required>
+                    </div>
+
+                    <div class="col-md-12">
+                      <input type="text" class="form-control" name="subject" placeholder="Sujet" required>
+                    </div>
+
+                    <div class="col-md-12">
+                      <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                      <div class="loading">Chargement...</div>
+
+                      <?php if (!empty($_SESSION['email_error']) || !empty($_SESSION['success'])) : ?>
+
+                        <div class="<?= $_SESSION['success'] ? "sent-message" : "error-message "  ?> d-block"><?= $_SESSION['success'] ? $_SESSION['success'] : $_SESSION['email_error'] ?></div>
+
+                        <?php unset($_SESSION['email_error']); ?>
+                        <?php unset($_SESSION['success']); ?>
+                      <?php endif; ?>
+
+                      <button type="submit">Envoyer le message</button>
+                    </div>
+
+                  </div>
+                </form>
+
               </div>
-              <div class="col-md-6">
-                <div class="info-box">
-                  <i class="bi bi-envelope"></i>
-                  <h3>Envoyez-nous un e-mail</h3>
-                  <p>direction-ges@reseau-ges.fr</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box">
-                  <i class="bi bi-clock"></i>
-                  <h3>Heures d'ouverture</h3>
-                  <p>Lundi - Vendredi<br>09:00 – 18:00</p>
-                </div>
-              </div>
+
+
             </div>
 
           </div>
 
-          <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Votre nom" required>
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Votre E-Mail" required>
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Sujet" required>
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Chargement...</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Votre message a bien été envoyé! Vous aurez une réponse dans les 48h.</div>
-
-                  <button type="submit">Envoyer le message</button>
-                </div>
-
-              </div>
-            </form>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- End Contact Section -->
+        </section><!-- End Contact Section -->
       </div>
     </section>
 
